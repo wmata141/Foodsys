@@ -1,3 +1,42 @@
-<p>
-  employee-create works!
-</p>
+<div class="container register">
+    <div class="row" style="margin-right: -5px;">
+      <div class="col-md-3 register-left">
+        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+        <h3>Welcome</h3>
+        <p>It is simple and very human and we do it instinctively. Give thanks!</p>
+      </div>
+      <div class="col-md-9 register-right">
+        <div class="row register-form">
+          <div class="col-md-12">
+            <form class="form-horizontal" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
+  
+              <div class="form-group">
+                <input type="text" class="form-control" #firstNamevalid="ngModel" required name="firstName"
+                  [(ngModel)]="firstName" placeholder="First Name *" value="" />
+                <div *ngIf="firstNamevalid.errors && (firstNamevalid.dirty || firstNamevalid.touched)">
+                  <p class="text-danger" *ngIf="firstNamevalid.errors.required">First Name is required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" #lastNamevalid="ngModel" required name="lastName"
+                  [(ngModel)]="lastName" placeholder="Last Name *" value="" />
+                <div *ngIf="lastNamevalid.errors && (lastNamevalid.dirty || lastNamevalid.touched)">
+                  <p class="text-danger" *ngIf="lastNamevalid.errors.required">Last Name is required</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="occupation" [(ngModel)]="occupation">
+                  <option class="hidden" selected disabled>Please Profession that has</option>
+                  <option value="Developer">Developer</option>
+                  <option value="Scrum Master">Scrum Master</option>
+                  <option value="Mobile">Mobile </option>
+                  <option value="Tester">Tester </option>
+                </select>
+              </div>
+              <input type="submit" class="btn btn-success" value="Save" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

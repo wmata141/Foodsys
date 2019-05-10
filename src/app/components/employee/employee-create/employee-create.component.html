@@ -11,14 +11,14 @@
             <form class="form-horizontal" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
   
               <div class="form-group">
-                <input type="text" class="form-control" #firstNamevalid="ngModel" required name="firstName"
+                <input type="text" autocomplete="off" class="form-control" #firstNamevalid="ngModel" required name="firstName"
                   [(ngModel)]="firstName" placeholder="First Name *" value="" />
                 <div *ngIf="firstNamevalid.errors && (firstNamevalid.dirty || firstNamevalid.touched)">
                   <p class="text-danger" *ngIf="firstNamevalid.errors.required">First Name is required</p>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" #lastNamevalid="ngModel" required name="lastName"
+                <input type="text" autocomplete="off" class="form-control" #lastNamevalid="ngModel" required name="lastName"
                   [(ngModel)]="lastName" placeholder="Last Name *" value="" />
                 <div *ngIf="lastNamevalid.errors && (lastNamevalid.dirty || lastNamevalid.touched)">
                   <p class="text-danger" *ngIf="lastNamevalid.errors.required">Last Name is required</p>

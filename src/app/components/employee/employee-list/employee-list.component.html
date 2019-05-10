@@ -1,3 +1,20 @@
-<p>
-  employee-list works!
-</p>
+<div class="row mbr-justify-content-center">
+    <div *ngFor="let emp of emps" class="col-lg-6 mbr-col-md-10">
+      <div class="wrap">
+        <div class="ico-wrap">
+          <span *ngIf="emp.occupation === 'Developer'" class="mbr-iconfont fa fa-code"></span>
+          <span *ngIf="emp.occupation === 'Scrum Master'" class="mbr-iconfont fa fa-star"></span>
+          <span *ngIf="emp.occupation === 'Tester'" class="mbr-iconfont fa fa-eye"></span>
+          <span *ngIf="emp.occupation === 'Mobile'" class="mbr-iconfont fa fa-mobile"></span>
+        </div>
+        <div class="text-wrap vcenter">
+          <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Name:
+            <span>{{emp.firstName}} {{emp.lastName}}</span>
+          </h2>
+          <p class="mbr-fonts-style text1 mbr-text display-6">{{emp.occupation}}</p>
+          <a [routerLink]="['/employee-edit', emp.id]" class="btn btn-primary">Edit</a>
+          <button (click)="deleteEmployee(emp.id)" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
